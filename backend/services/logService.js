@@ -10,7 +10,7 @@ async function create(level, event, details) {
 
 async function list(limit = 100) {
   try {
-    return db.query('SELECT * FROM logs ORDER BY created_at DESC LIMIT ?', [limit]);
+    return db.query(`SELECT * FROM logs ORDER BY created_at DESC LIMIT ${Number(limit || 100)}`);
   } catch (error) {
     console.warn('Log read failed:', error.message);
     return [];

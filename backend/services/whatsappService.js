@@ -1,3 +1,4 @@
+const qrcodeTerminal = require('qrcode-terminal');
 const path = require('path');
 const fs = require('fs');
 const { Client, LocalAuth, MessageMedia } = require('whatsapp-web.js');
@@ -87,6 +88,7 @@ function attachClientEvents(instance) {
   client = instance;
 
   client.on('qr', async (qr) => {
+    qrcodeTerminal.generate(qr, { small: true });
     status = { state: 'qr', qr, connected: false };
     const qrData = await qrcode.toDataURL(qr);
     status.qr = qrData;

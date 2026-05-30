@@ -11,8 +11,8 @@ module.exports = {
   },
   db: {
     host: process.env.DB_HOST || '127.0.0.1',
-    user: process.env.DB_USER || 'root',
-    password: process.env.DB_PASSWORD || '',
+    user: process.env.DB_USER || 'botuser',
+    password: process.env.DB_PASSWORD || 'StrongPassword123!',
     database: process.env.DB_NAME || 'whatsappcrm',
     waitForConnections: true,
     connectionLimit: 10,
@@ -21,8 +21,8 @@ module.exports = {
   whatsapp: {
     sessionDir: path.join(__dirname, '..', 'backend', 'session'),
     puppeteer: {
-      headless: false,
-      executablePath: process.env.CHROME_PATH || detectChromePath(),
+      headless: true,
+      executablePath: '/snap/bin/chromium',
       args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage']
     }
   }

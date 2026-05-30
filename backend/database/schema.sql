@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS messages (
 CREATE TABLE IF NOT EXISTS automations (
   id INT AUTO_INCREMENT PRIMARY KEY,
   enabled TINYINT(1) DEFAULT 1,
-  steps_json TEXT DEFAULT '[]',
+  steps_json TEXT,
   cooldown_hours INT DEFAULT 24,
   trigger_mode ENUM('first_message','every_message','cooldown') DEFAULT 'first_message',
   last_run_at DATETIME,
